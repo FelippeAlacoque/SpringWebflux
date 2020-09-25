@@ -23,7 +23,7 @@ import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
 
 @CrossOrigin(origins = "*")
-//@RestController
+@RestController
 public class PlaylistController {
 	
 	@Autowired
@@ -51,7 +51,7 @@ public class PlaylistController {
 		System.out.println("---Start get Playlists by WEBFLUX--- " + LocalDateTime.now());
 		Flux<Long> interval = Flux.interval(Duration.ofSeconds(10));
         Flux<Playlist> playlistFlux = playlistService.findAll();
-
+        System.out.println("Passou aqui...");
         return Flux.zip(interval, playlistFlux);
         
 	}
